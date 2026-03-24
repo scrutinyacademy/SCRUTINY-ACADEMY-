@@ -679,8 +679,8 @@ function doLogin(){
   const err = document.getElementById('loginError');
   if(STUDENTS[u] && STUDENTS[u].password === p){
     currentUser = { username:u, ...STUDENTS[u] };
-    err.classList.remove('show');
-    startDashboard();
+    document.getElementById("login-page").style.display = "none";
+document.getElementById("dashboard-page").style.display = "block";
   } else {
     err.classList.add('show');
     document.getElementById('passwordInput').value='';
