@@ -247,7 +247,7 @@ body{font-family:'DM Sans',sans-serif;background:#f0f4f8;color:var(--ink);min-he
     </div>
     <p class="login-subtitle">Enter your credentials to access your study materials</p>
     <div class="login-error" id="loginError">❌ Invalid username or password. Please try again.</div>
-    <div class="login-form">
+    <form onsubmit="event.preventDefault(); doLogin();">
       <div class="form-group">
         <label>Username</label>
         <input type="text" id="usernameInput" placeholder="e.g. student01" autocomplete="username"/>
