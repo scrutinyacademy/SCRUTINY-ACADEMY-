@@ -676,16 +676,19 @@ let currentUser = null;
 
 // ---------- LOGIN ----------
 function doLogin(){
-  const u = document.getElementById('usernameInput').value.trim().toLowerCase();
-  const p = document.getElementById('passwordInput').value.trim();
-  const err = document.getElementById('loginError');
-  if(STUDENTS[u] && STUDENTS[u].password === p){
-    currentUser = { username:u, ...STUDENTS[u] };
-    document.getElementById("login-page").style.display = "none";
-document.getElementById('dashboard-page').style.display = "flex";
+  let u = document.getElementById('usernameInput').value.trim().toLowerCase();
+  let p = document.getElementById('passwordInput').value.trim();
+  let err = document.getElementById('loginError');
+
+  if (STUDENTS[u] && STUDENTS[u].password === p){
+      currentUser = { username: u, ...STUDENTS[u] };
+
+      document.getElementById('login-page').style.display = "none";
+      document.getElementById('dashboard-page').style.display = "flex";
+
+      startDashboard();
   } else {
-    err.classList.add('show');
-    document.getElementById('passwordInput').value='';
+      err.style.display = "block";
   }
 }
 document.getElementById('passwordInput').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
